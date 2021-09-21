@@ -1,10 +1,18 @@
 extends layout
 
+block append head
+  script(src="/socket.io/socket.io.js")
+  script(src="/script.js")
+
 block content
-
-  h1 Welcome, #{user.displayName}. Your email: #{user.email}.
-
-  p.greeting You are logged in.
+  p Welcome, #{user.displayName}.
 
   form(action="/logout" method="post")
+    input(type='hidden', name='_csrf', value=csrf)
     button.btn.btn-primary(type="submit") Logout
+
+  h1 Chat
+
+  .alert.alert-info
+    | State:
+    span(data-status)
