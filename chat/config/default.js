@@ -14,7 +14,7 @@ module.exports = {
   },
   mongodb: {
     debug: true,
-    uri: 'mongodb://localhost/facebook'
+    uri: 'mongodb://localhost/chat'
   },
   server: {
     site: {
