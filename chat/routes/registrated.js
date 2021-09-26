@@ -53,7 +53,7 @@ exports.post = async function (ctx) {
   ctx.cookies.set('verification',
     `${ctx.request.body.displayName}`);
   ctx.body = ctx.render('verification.pug');
-  ctx.flash('message', `Подтвердите свой Email ${ctx.request.body.displayName}`);
+
 
   // await sendMail(ctx.request.body.displayName, ctx.request.body.email)
 };
