@@ -21,6 +21,7 @@
     "fs-extra": "*",
     "gulp": "*",
     "gulp-nodemon": "*",
+    "ioredis": "^4.27.9",
     "jsonwebtoken": "*",
     "juice": "*",
     "jwt-simple": "*",

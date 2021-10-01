@@ -14,6 +14,7 @@ require('./handlers/06-session').init(app);
 require('./handlers/07-bodyParser').init(app);
 require('./handlers/08-passport').init(app);
 require('./handlers/09-flash').init(app);
+// require('./handlers/10-csrf').init(app);
 
 const router = new Router();
 

@@ -8,12 +8,15 @@ exports.post = passport.authenticate('local', {
 });
 
 // exports.post = async function(ctx, next) {
-//
+
 //   // @see node_modules/koa-passport/lib/framework/koa.js for passport.authenticate
 //   // it returns the middleware to delegate
 //   await passport.authenticate('local', async function(err, user, info) {
-//     // ...
-//      ctx.body = { user };
+//     if(err){
+//       return
+//     }
+//     console.log(ctx.csrf)
+//      ctx.redirect('/');
 //   })(ctx, next);
-//
+
 // };

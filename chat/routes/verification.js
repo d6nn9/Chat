@@ -8,13 +8,15 @@ module.exports = async function (ctx) {
     ctx.throw(404, 'linck is not defined now');
   }
 
-  u.verifyEmailToken = null;
 
-  u.verifiedEmail = true;
-
-  await u.save();
-
-  await ctx.login(u);
-
-  ctx.redirect('/');
+      u.verifyEmailToken = null;
+  
+      u.verifiedEmail = true;
+  
+      await u.save();
+  
+      await ctx.login(u);
+      
+      ctx.redirect('/');
+  
 };
