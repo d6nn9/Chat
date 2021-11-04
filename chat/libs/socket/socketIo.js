@@ -10,20 +10,18 @@ const User = require('../../models/User');
 function socket(server) {
   // redis.set("foo", "bar");
   const io = socketIo(server);
-
   // io.adapter(socketRedis)
-
   io.use(async function (socket, next) {
 
 
     const cookie = new Cookie(socket.request, {});
-    console.log(socket.request);
-    console.log(cookie);
+    // console.log(socket.request);
+    // console.log(cookie);
     const sessionId = cookie.get('koa.sess');
+    
     if (!sessionId) {
       return next(new Error("No session"));
     }
-
 
     const db = await mongoose.createConnection('mongodb://localhost/chat');
     const coll = await db.collection('sessions', {});
@@ -32,25 +30,25 @@ function socket(server) {
       return next(new Error("No find this session in db"));
     }
 
-
     const u = await User.findById(session.data.passport.user);
     if (!u) {
       return next(new Error("No find this user in db"));
     }
 
-
     socket.user = u;
     console.log('all good');
+
     next();
+
   });
 
   io.on('connection', function (socket) {
+    console.log(`????????????????????????????${socket.id}???????????????????????????????????????????????`)
 
-    sub.subscribe("message", (err, count) => {
+    sub.subscribe("chat", 'system-chat', (err, count) => {
       if (err) {
         console.error("Failed to subscribe: %s", err.message);
       } else {
-        // `count` represents the number of channels this client are currently subscribed to.
         console.log(
           `Subscribed successfully! This client is currently subscribed to ${count} channels.`
         );
@@ -58,26 +56,36 @@ function socket(server) {
     });
 
     sub.on("message", (channel, message) => {
-      console.log(`Received ${message} from ${channel}`);
-      socket.emit('system_message', message);
-      console.log(`Received ${message} from ${channel}`);
+      // console.log(`Received ${message} from ${channel}`);
+      if (channel == "chat"){
+          // socket.on('message', (txt) => {
+          //   console.log(txt);
+            socket.broadcast.emit('user_message', {
+              user: socket.user.displayName,
+              text: message,
+              date: Date.now()
+            });
+          };
+      if (channel == 'system-chat')
+          socket.emit('system_message', message);
+      // console.log(`Received ${message} from ${channel}`);
     });
-
-    pub.publish('message', `Hello ${socket.user.displayName}!`);
 
 
     socket.on('message', (txt) => {
+        pub.publish('chat', `${txt}`);
+    })
 
-      console.log(txt);
-      socket.emit('user_message', {
-        user: socket.user.displayName,
-        text: txt,
-        date: Date.now()
-      });
+    pub.publish('system-chat', `${socket.user.displayName} join in chat!`);
+
+
+    socket.on('disconnect', function(){
+      socket.disconnect(true);
+      console.log('???????????????????????????????????????????????????????????????????????????')
     });
   });
 
 
-}
+};
 
 module.exports = socket;
