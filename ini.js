@@ -46,16 +46,105 @@
 
 // ???///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const obj = {};
-class Claster{
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
-      }
-    };
+// const obj = {};
+// class Claster{
+//     constructor(height, width) {
+//         this.height = height;
+//         this.width = width;
+//       }
+//     };
 
-    // const {Claster} = obj;
-    const newClaster = new Claster(10,20);
+//     // const {Claster} = obj;
+//     const newClaster = new Claster(10,20);
 
-    console.log(newClaster.height)
+//     console.log(newClaster.height)
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// const bar = () => console.log('bar')
+// const baz = () => console.log('baz')
+// const bag = () => console.log('baghhhhhhhhhhhhhhhhhhhhhhhhhhh')
+// const bad = () => console.log('bad')
+// const foo = () => {
+// console.log('foo')
+// setTimeout(bar, 0)
+// new Promise((resolve, reject) =>
+// resolve('should be right after baz, before bar1')
+// ).then(resolve => console.log(resolve))
+// new Promise((resolve, reject) =>
+// resolve('should be right after baz, before bar2')
+// ).then(resolve => console.log(resolve))
+// new Promise((resolve, reject) =>
+// resolve('should be right after baz, before bar3')
+// ).then(resolve => console.log(resolve))
+// new Promise((resolve, reject) =>
+// resolve('should be right after baz, before ba4')
+// ).then(resolve => console.log(resolve))
+// process.nextTick(()=>{
+//   console.log('jjjjjjjjjjjjjjjjjjjjjjjjjjj')
+// })
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// bad()
+// }
+
+// foo()
+// new Promise((resolve, reject) =>
+// resolve('should be right after baz, before b222222ar')
+// ).then(resolve => console.log(resolve))
+
+// ..............................................................................................................................................
+
+// function getThis(){
+//   console.log(this)
+// }
+
+// const obj={
+//   consolz(){
+//     getThis();
+//     getThis.call(this)
+//   } ,
+//   node: 'dwdwdw',
+// }
+
+// obj.consolz()
+
+// ..................................................................................................................................................
+//  let obj = {
+//     sum(){
+//       return 10
+//     }
+//  };
+
+//  let obj2 = Object.create(obj, { p: {"value": "John", writable: true, enumerable: false,}});
+
+// console.log(obj2.__proto__)
+
+// for(let key in obj2){
+//   console.log(key)
+// }
+
+// // let animal = {
+// //   eats: true
+// // };
+
+// // // создаём новый объект с прототипом animal
+// // let rabbit = Object.create(animal);
+
+// // console.log(rabbit.eats)
+// ...............................................................................................................................................
+
+console.log(JSON.stringify({ x: 5, y: 55 }));  
+console.log(JSON.stringify({ x: undefined, y: Object, z: Symbol('') }));

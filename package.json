@@ -12,6 +12,7 @@
     "eslint-config-google": "*"
   },
   "dependencies": {
+    "@socket.io/redis-adapter": "^7.0.0",
     "aws-sdk": "*",
     "bunyan": "*",
     "clarify": "*",
@@ -54,7 +55,7 @@
     "passport-local": "*",
     "pug": "*",
     "randomstring": "*",
-    "redis": "*",
+    "redis": "^3.1.2",
     "request": "*",
     "request-promise": "*",
     "selenium-webdriver": "*",

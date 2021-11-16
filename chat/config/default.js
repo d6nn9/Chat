@@ -22,20 +22,4 @@ module.exports = {
       port: 3000,
     }
   },
-  providers: {
-    facebook: {
-      appId: '1584514044907807',
-      appSecret: 'f0f14ef63e0c6b9ec549b9b15f63a808',
-      passportOptions: {
-        scope: ['email']
-      }
-    },
-    vk: {
-      appId: '6726168',
-      appSecret: 'vVazHGOUn1NKwTudZbT4',
-      passportOptions: {
-        scope: ['email']
-      }
-    }
-  },
 };
