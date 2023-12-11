@@ -10,8 +10,8 @@ module.exports = async function (options) {
   //   port: 587,
   //   secure: false, // upgrade later with STARTTLS
   //   auth: {
-  //     user: "ryabkov199",
-  //     pass: "458911lfybk",
+  //     user: "",
+  //     pass: "",
   //   }
   // });
 
